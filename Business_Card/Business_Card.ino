@@ -126,6 +126,10 @@ void loop() {
     // failed to get time
   }
   else {
+    // clear clock
+    for (int i=0; i<LED_COUNT; i++) {
+      strip.setPixelColor(i, strip.Color(0, 0, 0));
+    }
     secOn = !secOn;
     // set PM indicator
     if (timeinfo.tm_hour >= 12) {
@@ -500,7 +504,3 @@ void loop() {
   }
   delay(1000);
 }
-
-//strip.setPixelColor(i, color);         //  Set pixel's color (in RAM)
-//strip.show();                          //  Update strip to match
-//strip.Color(255,   0,   0)
